@@ -7,7 +7,7 @@ server:
 eureka:
   instance:
     # hostname需要再hosts里映射对应ip
-    hostname: h1
+    hostname: descovery-1
   client:
     #配置服务注册中心是否以自己为客户端进行注册(配置false)
     register-with-eureka: true
@@ -15,7 +15,7 @@ eureka:
     fetch-registry: true
     serviceUrl:
       # defaultXone 不能写iP
-      defaultZone: http://h2:8761/eureka/,http://h3:8761/eureka/
+      defaultZone: http://descovery-2:8761/eureka/,http://descovery-3:8761/eureka/
 
 ---
 spring:
@@ -26,14 +26,14 @@ server:
   port: 8761
 eureka:
   instance:
-    hostname: h2
+    hostname: descovery-2
   client:
     register-with-eureka: true
     #配置服务注册中心是否以自己为客户端进行注册(配置false)
     fetch-registry: true
     #是否取得注册信息(配置false)
     serviceUrl:
-      defaultZone: http://h1:8761/eureka/,http://h3:8761/eureka/
+      defaultZone: http://descovery-1:8761/eureka/,http://descovery-3:8761/eureka/
 
 ---
 spring:
@@ -44,11 +44,11 @@ server:
   port: 8761
 eureka:
   instance:
-    hostname: h3
+    hostname: descovery-3
   client:
     register-with-eureka: true
     #配置服务注册中心是否以自己为客户端进行注册(配置false)
     fetch-registry: true
     #是否取得注册信息(配置false)
     serviceUrl:
-      defaultZone: http://h1:8761/eureka/,http://h2:8761/eureka/
+      defaultZone: http://descovery-1:8761/eureka/,http://descovery-2:8761/eureka/
