@@ -1,5 +1,5 @@
 spring:
-  profiles: d1
+  profiles: h1
   application:
     name: discovery
 server:
@@ -19,7 +19,7 @@ eureka:
 
 ---
 spring:
-  profiles: d2
+  profiles: h2
   application:
     name: discovery
 server:
@@ -37,7 +37,7 @@ eureka:
 
 ---
 spring:
-  profiles: d3
+  profiles: h3
   application:
     name: discovery
 server:
