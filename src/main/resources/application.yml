@@ -15,7 +15,7 @@ eureka:
     fetch-registry: true
     serviceUrl:
       # defaultXone 不能写iP
-      defaultZone: http://descovery-2:8761/eureka/
+      defaultZone: http://descovery-2:8761/eureka/,http://descovery-3:8761/eureka/
 
 ---
 spring:
@@ -33,4 +33,22 @@ eureka:
     fetch-registry: true
     #是否取得注册信息(配置false)
     serviceUrl:
-      defaultZone: http://descovery-1:8761/eureka/
+      defaultZone: http://descovery-1:8761/eureka/,http://descovery-3:8761/eureka/
+
+---
+spring:
+  profiles: d3
+  application:
+    name: discovery
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: descovery-3
+  client:
+    register-with-eureka: true
+    #配置服务注册中心是否以自己为客户端进行注册(配置false)
+    fetch-registry: true
+    #是否取得注册信息(配置false)
+    serviceUrl:
+      defaultZone: http://descovery-1:8761/eureka/,http://descovery-2:8761/eureka/
